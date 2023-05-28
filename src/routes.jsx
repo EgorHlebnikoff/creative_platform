@@ -1,4 +1,5 @@
-import {createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
+import AreaPage from "./pages/Area";
 import IndexPage from "./pages/Index";
 import SignInPage from "./pages/SignIn";
 import SignUpPage from "./pages/SignUp";
@@ -10,12 +11,16 @@ const router = createBrowserRouter([
     },
     {
         path: "/sign-in",
-        element: <SignInPage />
+        element: <SignInPage />,
     },
     {
         path: "/sign-up",
-        element: <SignUpPage />
-    }
+        element: <SignUpPage />,
+    },
+    {
+        path: "/area/:id",
+        element: <AreaPage />,
+    },
 ]);
 
 export default router;

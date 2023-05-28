@@ -64,7 +64,7 @@ const Header = ({ user }) => {
                 {getNavigation(user?.role)}
             </div>
             <div>
-                {user ? (
+                {user && user.name ? (
                     <User userName={user.name} />
                 ) : (
                     <Button type="text" style={{ lineHeight: "22px" }} onClick={goToSignIn}>
@@ -78,8 +78,8 @@ const Header = ({ user }) => {
 
 Header.propTypes = {
     user: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        role: PropTypes.string.isRequired,
+        name: PropTypes.string,
+        role: PropTypes.string,
     }),
 };
 

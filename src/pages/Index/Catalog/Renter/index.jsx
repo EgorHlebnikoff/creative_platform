@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import CatalogCard from "../../../../components/Area/CatalogCard.jsx";
-import { useGetAllCreativeAreaQuery } from "../../../../services/api.js";
+import { useGetAllCreativeAreaQuery, useGetAllServicesQuery } from "../../../../services/api.js";
 import { selectAreas } from "../../../../store/creativeArea/index.js";
+import { selectServices } from "../../../../store/services/index.js";
 import Filters from "./Filters.jsx";
 import styles from "./styles.module.css";
 
@@ -21,8 +22,10 @@ const catalogVariants = [
 
 const RenterCatalog = ({ showPrices }) => {
     useGetAllCreativeAreaQuery();
+    useGetAllServicesQuery();
 
     const areas = useSelector(selectAreas);
+    const services = useSelector(selectServices);
 
     const [catalogVariant, setCatalogVariant] = useState(catalogVariants[0].value);
 
@@ -54,14 +57,10 @@ const RenterCatalog = ({ showPrices }) => {
                         <div className={styles.catalog__filtersDivider} />
                         <Checkbox.Group
                             className={styles.catalog__filtersCheckbox}
-                            options={[
-                                { label: "Название услуги", value: "0" },
-                                { label: "Название услуги", value: "1" },
-                                { label: "Название услуги", value: "2" },
-                                { label: "Название услуги", value: "3" },
-                                { label: "Название услуги", value: "4" },
-                                { label: "Название услуги", value: "5" },
-                            ]}
+                            options={services.map(({ id: value, name: label }) => ({
+                                value,
+                                label,
+                            }))}
                         />
                         {showPrices && (
                             <>

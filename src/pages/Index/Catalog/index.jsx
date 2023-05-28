@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import RenterCatalog from "./Renter";
 
 const Catalog = ({ user }) => {
-    if (!user || user.role === "Renter") {
+    if (Object.values(user).length === 0 || user.role === "Renter") {
         return <RenterCatalog showPrices={user?.role === "Renter"} />;
     }
 

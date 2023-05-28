@@ -1,59 +1,39 @@
 import { HeartOutlined } from "@ant-design/icons";
 import { Button, Rate } from "antd";
 import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Photo from "./Photo.jpg";
-import { ReactComponent as Architecture } from "./arhitrcura.svg";
-import { ReactComponent as Art } from "./art.svg";
-import { ReactComponent as CustomerService } from "./customer-service.svg";
-import { ReactComponent as Design } from "./design.svg";
-import { ReactComponent as Game } from "./game.svg";
-import { ReactComponent as Ispolnitelskoe } from "./ispolnitelskoe.svg";
-import { ReactComponent as IzdatelskoeDelo } from "./izdatelskoe_delo.svg";
-import { ReactComponent as Moda } from "./moda.svg";
-import { ReactComponent as Movie } from "./movie.svg";
-import { ReactComponent as Reklama } from "./reklama.svg";
-import { ReactComponent as Location } from "./Location.svg";
+import { useLazyGetCreativeAreaServicesQuery } from "../../services/api.js";
+import getAreaAddress from "../../utils/getAreaAddress.js";
+import getAreaImage from "../../utils/getAreaImage.js";
+import { ReactComponent as CustomerService } from "../../assets/industry/customer-service.svg";
+import { ReactComponent as Location } from "../../assets/location.svg";
+import getAreaIndustryIcon from "../../utils/getAreaIndustryIcon.jsx";
 import styles from "./catalogCard.module.css";
 
-const getAreaIcon = (type) => {
-    switch (type) {
-        case "arhitrcura":
-            return <Architecture />;
-        case "art":
-            return <Art />;
-        case "customer-service":
-            return <CustomerService />;
-        case "design":
-            return <Design />;
-        case "game":
-            return <Game />;
-        case "ispolnitelskoe":
-            return <Ispolnitelskoe />;
-        case "izdatelskoe_delo":
-            return <IzdatelskoeDelo />;
-        case "moda":
-            return <Moda />;
-        case "movie":
-            return <Movie />;
-        case "reklama":
-            return <Reklama />;
-        default:
-            return <CustomerService />;
-    }
-};
-
 const CatalogCard = ({ area, showPrice }) => {
+    const [getServices] = useLazyGetCreativeAreaServicesQuery();
+
+    const [logo, setLogo] = useState("");
+
     const handleFavouritesClick = (event) => {
         event.stopPropagation();
-        console.dir(event);
     };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setLogo(await getAreaImage(area.logoId));
+            getServices(area.arealld);
+        };
+
+        fetchData();
+    }, [area]);
 
     return (
         <div className={styles.catalogCard}>
             <div className={styles.catalogCard__imageContainer}>
                 <Link to={`/area/${area.arealld}`}>
-                    <img className={styles.catalogCard__image} src={Photo} alt="" />
+                    {logo && <img className={styles.catalogCard__image} src={logo} alt="" />}
                 </Link>
                 <Button
                     type="text"
@@ -72,12 +52,12 @@ const CatalogCard = ({ area, showPrice }) => {
                                 to={`/area/${area.arealld}`}
                                 className={styles.catalogCard__title}
                             >
-                                {getAreaIcon(area.industry)} Студия Звукозаписи
+                                {getAreaIndustryIcon(area.industry)} {area.name}
                             </Link>
                         </h2>
                         <p className={styles.catalogCard__address}>
                             <Location />
-                            Г. Москва, улица Ленина, дом 15, помещение 35
+                            {getAreaAddress(area)}
                         </p>
                     </div>
                     <div>

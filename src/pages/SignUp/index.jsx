@@ -4,17 +4,10 @@ import clsx from "clsx";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSignUpMutation, useAddFileMutation } from "../../services/api.js";
+import getBase64Image from "../../utils/getBase64Image.js";
 import styles from "./styles.module.css";
 
 const { Content } = Layout;
-
-const getBase64 = (img) => {
-    return new Promise((res) => {
-        const reader = new FileReader();
-        reader.addEventListener("load", () => res(reader.result));
-        reader.readAsDataURL(img);
-    });
-};
 
 const SignUpPage = () => {
     const navigate = useNavigate();
@@ -56,7 +49,7 @@ const SignUpPage = () => {
             formData.append("uploadedFile", data.file);
 
             setLogoId(await loadDocument(formData).unwrap());
-            setLogoURL(await getBase64(data.file));
+            setLogoURL(await getBase64Image(data.file));
         } catch (err) {
             notification.error({
                 duration: 10,
