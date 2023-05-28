@@ -1,0 +1,224 @@
+.signup {
+    display: grid;
+
+    place-items: center;
+
+    padding: 130px;
+}
+
+.signup__formContainer {
+    width: 100%;
+    max-width: 456px;
+
+    padding: 32px;
+
+    background: #ffffff;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.12), 0 12px 24px -6px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+}
+
+.signup__formHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 32px;
+}
+
+.signup__formTitle {
+    font-family: "Cera Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 43px;
+    letter-spacing: -0.02em;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.signup__formTitle_smaller {
+    margin-bottom: 16px;
+
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.signup__link {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.3px;
+    color: #e74362;
+    text-align: center;
+}
+
+.signup__link_fullWidth {
+    display: block;
+    width: 100%;
+}
+
+.signup__link:hover,
+.signup__link:focus {
+    color: #1b283d;
+}
+
+.signup__submitbtn {
+    width: 100%;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.signup__item {
+    margin-bottom: 16px;
+}
+
+.signup__item:first-child {
+    margin-top: 0;
+}
+
+.signup__item:last-child {
+    margin-bottom: 32px;
+}
+
+.signup__item:only-child {
+    margin: 0;
+}
+
+.signup__item.signup__item_radio {
+    margin-bottom: 32px;
+}
+
+.signup__item :global(.ant-form-item-label) > label {
+    font-family: "Cera Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.3px;
+    color: #000000;
+}
+
+.signup__item :global(.ant-form-item-label) > label:global(.ant-form-item-required)::before {
+    content: none !important;
+}
+
+.signup__item :global(.ant-form-item-label) > label:global(.ant-form-item-required)::after {
+    display: inline-block;
+
+    color: #d65064;
+
+    content: "*";
+}
+
+.signup__item.signup__item_radio :global(.ant-form-item-control-input) {
+    min-height: auto;
+    max-height: 20px;
+}
+
+.signup__input {
+    color: #000000;
+
+    background: #ffffff;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, border-inline-end-width 0.2s ease;
+}
+
+.signup__input:global(.ant-input-password) > input {
+    color: #000000;
+
+    background: #ffffff;
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, border-inline-end-width 0.2s ease;
+}
+
+.signup__input:global(.ant-input-password) > input[type="password"] {
+    letter-spacing: 2px;
+}
+
+.signup__input:global(.ant-input-password .ant-input-password-icon),
+.signup__input:global(.ant-input-password .ant-input-password-icon):hover,
+.signup__input:global(.ant-input-password .ant-input-password-icon):focus {
+    color: #a9abb2;
+}
+
+.signup__radio {
+    margin-right: 16px;
+    align-items: center;
+}
+
+.signup__radio :global(.ant-radio-inner) {
+    background-color: #ffffff;
+    border: 1px solid #d9d9d9;
+}
+
+.signup__radio :global(.ant-radio-checked .ant-radio-inner) {
+    background-color: #ffffff;
+    border-color: #e74362;
+}
+
+.signup__radio:global(.ant-radio-wrapper):hover :global(.ant-radio-inner) {
+    border-color: #e74362;
+}
+
+.signup__radio :global(.ant-radio-checked .ant-radio-inner)::after {
+    background-color: #e74362;
+}
+
+.signup__radio > span:last-child {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.3px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.signup__item .signup__select :global(.ant-select-selector) {
+    color: #000000;
+
+    background: #ffffff;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+}
+
+.signup__item .signup__select :global(.ant-select-selector .ant-select-selection-placeholder) {
+    font-size: 14px;
+    letter-spacing: -0.3px;
+    color: rgba(0, 0, 0, 0.25);
+}
+
+.signup__item .signup__select :global(.ant-select-arrow) {
+    color: rgba(0, 0, 0, 0.25);
+
+    transition: transform 0.2s ease;
+}
+
+.signup__item .signup__select:global(.ant-select-open) :global(.ant-select-selection-item) {
+    color: #000000;
+}
+
+.signup__item .signup__select:global(.ant-select-open) :global(.ant-select-arrow) {
+    transform: rotate(180deg);
+}
+
+.signup__selectDropdown :global(.ant-select-item-option-selected:not(.ant-select-item-option-disabled)) {
+    font-weight: 400;
+    color: #000000;
+}
+
+.signup__upload:global(.ant-upload-wrapper.ant-upload-picture-card-wrapper) :global(.ant-upload.ant-upload-select) {
+    margin: 0;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+
+    background: #d9d9d9;
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+}
+
+.signup__upload:global(.ant-upload-wrapper.ant-upload-picture-card-wrapper) :global(.ant-upload.ant-upload-select):hover {
+    border-color: #e74362;
+}

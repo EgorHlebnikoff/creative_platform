@@ -1,0 +1,139 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: auto;
+
+    padding: 0 16px;
+
+    line-height: normal;
+
+    background-color: #1b283d;
+}
+
+.header__left {
+    display: flex;
+    align-items: center;
+}
+
+.header__logoContainer {
+    padding: 16px;
+}
+
+.header__logoContainer svg {
+    display: block;
+}
+
+.header__navigationLinkContainer {
+    padding: 20px;
+}
+
+.header__navigationLink {
+    position: relative;
+
+    font-family: "Cera Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+
+    padding: 20px;
+}
+
+.header__navigationLink::after {
+    position: absolute;
+    bottom: 2px;
+    left: 20px;
+
+    display: block;
+
+    height: 4px;
+    width: calc(100% - 40px);
+
+    background-color: #e74362;
+    opacity: 0;
+
+    transition: opacity 0.2s ease;
+
+    content: "";
+}
+
+.header__navigationLink:hover,
+.header__navigationLink:focus {
+    color: #ffffff;
+
+    outline: none;
+}
+
+.header__navigationLink:global(.active)::after,
+.header__navigationLink:hover::after,
+.header__navigationLink:focus::after {
+    opacity: 1;
+}
+
+.header__user {
+    display: flex;
+    align-items: center;
+}
+
+.header__notifications {
+    position: relative;
+
+    padding: 12px;
+}
+
+.header__notifications:hover svg,
+.header__notifications:focus svg {
+    color: #e74362;
+}
+
+.header__notifications svg {
+    display: block;
+
+    color: #ffffff;
+}
+
+.header__notifications span {
+    position: absolute;
+    top: 2px;
+    left: 26px;
+
+    min-width: 30px;
+
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+
+    background-color: #e74362;
+    border-radius: 100px;
+}
+
+.header__userLink {
+    display: flex;
+    align-items: center;
+
+    padding: 8px 12px;
+
+    color: #ffffff;
+    font-family: "Cera Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 14px;
+    line-height: 22px;
+
+    transition: color 0.2s ease;
+}
+
+.header__userLink:hover,
+.header__userLink:focus {
+    color: #e74362;
+}
+
+.header__userAvatar {
+    width: 32px;
+    height: 32px;
+
+    margin-right: 8px;
+
+    border-radius: 50%;
+}

@@ -1,0 +1,98 @@
+.filters {
+    display: flex;
+    align-items: flex-end;
+}
+
+.filters__main {
+    display: flex;
+
+    width: 100%;
+}
+
+.filters__group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filters__group_industry {
+    width: 100%;
+    max-width: 300px;
+
+    margin-right: 24px;
+}
+
+.filters__group_bookingDate {
+    margin-right: 16px;
+}
+
+.filters__group_timeRange {
+    margin-right: 12px;
+}
+
+.filters__group > span {
+    margin-bottom: 8px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.3px;
+    color: #ffffff;
+}
+
+.filters__select {
+    max-width: 300px;
+}
+
+.filters__group > .filters__select :global(.ant-select-selector) {
+    border: 1px solid #8d939e;
+    border-radius: 6px;
+}
+
+.filters__group > .filters__select :global(.ant-select-selector .ant-select-selection-placeholder) {
+    font-size: 14px;
+    letter-spacing: -0.3px;
+    color: #8d939e;
+}
+
+.filters__group > .filters__select :global(.ant-select-arrow) {
+    color: #8d939e;
+}
+
+.filters__picker {
+    border: 1px solid #8d939e;
+    border-radius: 6px;
+}
+
+.filters__picker :global(.ant-picker-input) > input::placeholder {
+    color: #8d939e;
+}
+
+.filters__picker :global(.ant-picker-input) > span {
+    color: #8d939e;
+}
+
+.filters__pickerDropdown :global(li.ant-picker-time-panel-cell.ant-picker-time-panel-cell-selected) :global(.ant-picker-time-panel-cell-inner) {
+    color: #000000;
+}
+
+.filters__group > .filters__input {
+    min-width: 250px;
+
+    margin: 0;
+
+    border: 1px solid #8d939e;
+    border-radius: 6px;
+}
+
+.filters__group > .filters__input > input::placeholder {
+    color: #8d939e;
+}
+
+.filters__group > .filters__input > span {
+    color: #8d939e;
+}
+
+.filters__group > .filters__input > span svg {
+    width: 20px;
+    height: 20px;
+}
